@@ -1,8 +1,13 @@
 """
 Mllion Live event Border Prediction - Project MLBP
 written by LynAlpha twt: @LynAlpha
+<<<<<<< HEAD
 ver. Chili con carne
 least edit 17 06 02
+=======
+ver. Black pudding
+least edit 17 05 11
+>>>>>>> origin/master
 """
 """
 Training data set was obtained from mlborder.com
@@ -20,6 +25,7 @@ ver. Black pudding
 
 Uploading to Github
 17 05 12
+<<<<<<< HEAD
 
 ver. Chili con carne
 17 06 02
@@ -30,6 +36,8 @@ How to read test set data
 3column: event term
 4column: idol type
 5column: idol name(Hiragana base characters' order)
+=======
+>>>>>>> origin/master
 """
 import tensorflow as tf
 import numpy as np
@@ -52,8 +60,13 @@ X = tf.placeholder(tf.float32, shape=[None, 5])
 Y = tf.placeholder(tf.float32, shape=[None, 1])
 dropout_rate = tf.placeholder(tf.float32)
 
+<<<<<<< HEAD
 learning_rate = 0.001
 training_epochs = 50000
+=======
+learning_rate = 0.00001
+training_epochs = 100
+>>>>>>> origin/master
 batch_size = 4
 
 CHECK_POINT_DIR = TB_SUMMARY_DIR = './netLog'
@@ -94,6 +107,7 @@ b5 = tf.Variable(tf.random_normal([1024]))
 _L5 = tf.nn.relu(tf.matmul(L4, W5) + b5)
 L5 = tf.nn.dropout(_L5, dropout_rate)
 
+<<<<<<< HEAD
 W6 = tf.get_variable("W6", shape=[1024, 1024],
                      initializer=tf.contrib.layers.xavier_initializer())
 b6 = tf.Variable(tf.random_normal([1024]))
@@ -104,6 +118,12 @@ W7 = tf.get_variable("W7", shape=[1024, 1],
                      initializer=tf.contrib.layers.xavier_initializer())
 b7 = tf.Variable(tf.random_normal([1]))
 hypothesis = tf.matmul(L6, W7) + b7
+=======
+W6 = tf.get_variable("W6", shape=[1024, 1],
+                     initializer=tf.contrib.layers.xavier_initializer())
+b6 = tf.Variable(tf.random_normal([1]))
+hypothesis = tf.matmul(L5, W6) + b6
+>>>>>>> origin/master
 
 # define cost/loss & optimizer
 cost = tf.reduce_mean(tf.square(hypothesis - Y))
